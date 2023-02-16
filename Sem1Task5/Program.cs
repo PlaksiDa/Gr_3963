@@ -14,7 +14,6 @@ if (lineN != null)
     {
         res = res + negN + " ";
         negN++;
-        Console.WriteLine(res);
     }
     Console.WriteLine(res);
 }
