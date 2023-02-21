@@ -43,14 +43,14 @@ if (num > 0 && num < 8)
     // Проверяю, относится ли день к рабочим
     if (num > 0 && num < 6)
     {
-        Console.WriteLine("Рабочий день");
+        Console.WriteLine($"{days[num]} - Рабочий день");
     }
     else
     {
-        Console.WriteLine("Выходной день");
+        Console.WriteLine($"{days[num]} - Выходной день");
     }
 }
 else
 {
-    Console.WriteLine("Число не является днём недели");
+    Console.WriteLine($"Число {num} не является днём недели");
 }
