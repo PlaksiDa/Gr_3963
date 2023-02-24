@@ -6,12 +6,12 @@
 Console.Clear();
 
 Console.WriteLine("Введите первое число: ");
-string numLine1 = Console.ReadLine();
+string numLine1 = Console.ReadLine() ?? "0";
 
 Console.WriteLine("Введите второе число число: ");
-string numLine2 = Console.ReadLine();
+string numLine2 = Console.ReadLine() ?? "0";
 
-if (numLine1 != null && numLine2 != null) ;
+if (numLine1 != null && numLine2 != null)
 {
     int num1 = int.Parse(numLine1);
     int num2 = int.Parse(numLine2);
