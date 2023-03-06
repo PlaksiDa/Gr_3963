@@ -2,6 +2,7 @@
 // элементов, заполненный нулями и единицами в
 // случайном порядке.
 
+//Метод для печати массива
 void Print1DArr(int[] arr)
 {
     Console.Write("[");
@@ -12,7 +13,7 @@ void Print1DArr(int[] arr)
     Console.Write(arr[arr.Length - 1]);
     Console.WriteLine("]");
 }
-
+//Метод для генерации массива
 int[] Gen1DArr(int len, int min, int max)
 {
     int[] arr = new int[len];
@@ -23,10 +24,4 @@ int[] Gen1DArr(int len, int min, int max)
     return arr;
 }
 
-int ReadData(string msg)
-{
-    Console.WriteLine(msg);
-    return Convert.ToInt32(Console.ReadLine() ?? "0");
-}
-
-Print1DArr(Gen1DArr(10, 0, 2));
+Print1DArr(Gen1DArr(8, 0, 1));

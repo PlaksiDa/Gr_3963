@@ -15,5 +15,3 @@ void PrintResult(int line)
 }
 
 PrintResult(ReadData("Введите число:").Length);
-
-int a = 1;
