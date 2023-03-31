@@ -50,6 +50,7 @@ void Sort2DArray(int[,] arr)
             row[j] = arr[i, j];
         }
         Array.Sort(row);
+        Array.Reverse(row);
         for (int j = 0; j < row.Length; j++)
         {
             arr[i, j] = row[j];

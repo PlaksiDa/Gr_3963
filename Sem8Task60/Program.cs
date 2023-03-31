@@ -10,7 +10,8 @@ int ReadData(string msg)
 int[,,] GenUnique3DArray(int countRow, int countColumn, int countDepth, int minValue, int maxValue)
 {
     Random rnd = new Random();
-    int[,,] arr = new int[countDepth, countRow, countColumn];
+    int[,,] arr = new int[countRow, countColumn, countDepth];
+    // Создаём список, в котом будем хранить числа, которые уже использовались
     List<int> usedValues = new List<int>();
     for (int k = 0; k < countDepth; k++)
     {
@@ -19,6 +20,7 @@ int[,,] GenUnique3DArray(int countRow, int countColumn, int countDepth, int minV
             for (int j = 0; j < countColumn; j++)
             {
                 int value;
+                // Генерируй случайное число до тех пор, пока его не окажется в списке usedValues
                 do
                 {
                     value = rnd.Next(minValue, maxValue + 1);
@@ -27,7 +29,6 @@ int[,,] GenUnique3DArray(int countRow, int countColumn, int countDepth, int minV
                 arr[k, i, j] = value;
             }
         }
-        usedValues.Clear();
     }
     return arr;
 }
@@ -46,4 +47,4 @@ void Print3DArrWithIndex(int[,,] arr)
     }
 }
 
-Print3DArrWithIndex(GenUnique3DArray(ReadData("Введите количество строк массива:"), ReadData("Введите количество столбцов массива:"), ReadData("Укажите глубину глубину:"), 10, 99));
+Print3DArrWithIndex(GenUnique3DArray(ReadData("Введите количество строк массива:"), ReadData("Введите количество столбцов массива:"), ReadData("Укажите глубину массива:"), 10, 99));

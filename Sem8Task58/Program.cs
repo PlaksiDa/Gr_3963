@@ -67,7 +67,7 @@ int[,] matrix2 = Gen2DArray(countRow, countColumn, minValue, maxValue);
 Console.WriteLine("Первая матрица:");
 Print2DArr(matrix1);
 
-Console.WriteLine("Первая матрица:");
+Console.WriteLine("Вторая матрица:");
 Print2DArr(matrix2);
 
 Console.WriteLine("Результат произведения:");
