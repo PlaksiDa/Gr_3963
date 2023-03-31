@@ -1,11 +1,5 @@
 ﻿// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
-
-// Метод для ввода данных из консоли
-int ReadData(string msg)
-{
-    Console.WriteLine(msg);
-    return Int32.Parse(Console.ReadLine() ?? "0");
-}
+// rnd.Next(minValue, maxValue + 1);
 // Метод для генерации 2D массива
 int[,] Gen2DArray(int countRow, int countColumn, int minValue, int maxValue)
 {
@@ -18,53 +12,36 @@ int[,] Gen2DArray(int countRow, int countColumn, int minValue, int maxValue)
     }
     Random rnd = new Random();
     int[,] arr = new int[countRow, countColumn];
-    for (int i = 0; i < countRow; i++)
+    for (int j = 0; j < arr.GetLength(1); j++)
     {
-        for (int j = 0; j < countColumn; j++)
-        {
-            arr[i, j] = rnd.Next(minValue, maxValue + 1);
-        }
+        arr[0, j] = rnd.Next(minValue, maxValue + 1);
+    }
+    for (int i = 0; i < arr.GetLength(0) - 1; i++)
+    {
+        arr[i + 1, arr.GetLength(1) - 1] = rnd.Next(minValue, maxValue + 1);
+    }
+    for (int j = arr.GetLength(1) - 2; j >= 0; j--)
+    {
+        arr[arr.GetLength(0) - 1, j] = rnd.Next(minValue, maxValue + 1);
+    }
+    for (int i = arr.GetLength(0) - 2; i > 0; i--)
+    {
+        arr[i, 0] = rnd.Next(minValue, maxValue + 1);
+    }
+    for (int j = 1; j < arr.GetLength(1) - 1; j++)
+    {
+        arr[1, j] = rnd.Next(minValue, maxValue + 1);
+    }
+    for (int j = 2; j > 0; j--)
+    {
+        arr[2, j] = rnd.Next(minValue, maxValue + 1);
     }
     return arr;
+
 }
 // Метод для заполнения и печати массива спирально
-void Fill2DArrayInSpiral(int[,] arr)
+void Print2DArr(int[,] arr)
 {
-    int count = 1;
-    int minRow = 0;
-    int maxRow = arr.GetLength(0) - 1;
-    int minCol = 0;
-    int maxCol = arr.GetLength(1) - 1;
-
-    while (count <= arr.Length)
-    {
-        for (int i = minCol; i <= maxCol; i++)
-        {
-            arr[minRow, i] = count++;
-        }
-
-        for (int i = minRow + 1; i <= maxRow; i++)
-        {
-            arr[i, maxCol] = count++;
-        }
-
-        for (int i = maxCol - 1; i >= minCol; i--)
-        {
-            arr[maxRow, i] = count++;
-        }
-
-        for (int i = maxRow - 1; i > minRow; i--)
-        {
-            arr[i, minCol] = count++;
-        }
-
-        minRow++;
-        maxRow--;
-        minCol++;
-        maxCol--;
-    }
-
-    // Выводим массив на консоль
     for (int i = 0; i < arr.GetLength(0); i++)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
@@ -75,9 +52,5 @@ void Fill2DArrayInSpiral(int[,] arr)
     }
 }
 
-int countRow = ReadData("Введите количество строк:");
-int countColumn = ReadData("Введите количество столбцов:");
-int minValue = ReadData("Введите минимальное значение:");
-int maxValue = ReadData("Введите максимальное значение:");
 
-Fill2DArrayInSpiral(Gen2DArray(countRow, countColumn, minValue, maxValue));
+Print2DArr(Gen2DArray(4, 4, 1, 9));
